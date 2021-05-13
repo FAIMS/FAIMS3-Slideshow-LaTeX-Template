@@ -1,0 +1,80 @@
+% This file is for custom packages, commands and theme specifications
+
+\mode<presentation>
+
+%----------------------------------------------------------------------------------------
+%	REQUIRED PACKAGES AND OTHER THEME CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\RequirePackage{tikz} % Required for precise positioning of elements in slides
+
+\usepackage{booktabs} % For proper table rules
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{Images/}{./}} % Specifies where to look for included images (trailing slash required)
+
+\setcounter{tocdepth}{1} % Only display sections in the table of contents
+
+\linespread{1.2} % Increase line spacing
+
+\usepackage{microtype} % Improve typography
+
+%----------------------------------------------------------------------------------------
+%	MARGINS
+%----------------------------------------------------------------------------------------
+
+\setbeamersize{text margin left=0.65cm} % Left margin
+\setbeamersize{text margin right=0.65cm} % Right margin
+
+%----------------------------------------------------------------------------------------
+%	FONTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fontspec} % Required for specifying custom fonts
+
+\defaultfontfeatures{Ligatures=TeX} % To support LaTeX ligatures (e.g. `` and --)
+\defaultfontfeatures{Path=Fonts/} % Specify the location of font files
+
+\setmainfont{OpenSans}[ % Default to Open Sans Light
+	UprightFont=*-Light.ttf,
+	BoldFont=*-Semibold.ttf,
+	ItalicFont=*-LightItalic.ttf,
+	BoldItalicFont=*-SemiboldItalic.ttf
+]
+
+\newfontfamily\OpenSans{OpenSans}[ % Optional Open Sans (Regular) to be used with \OpenSans
+	UprightFont=*-Regular.ttf,
+	BoldFont=*-Bold.ttf,
+	ItalicFont=*-Italic.ttf,
+	BoldItalicFont=*-BoldItalic.ttf
+]
+
+\newfontfamily\OpenSansCondensed{OpenSans}[ % Optional Open Sans Condensed to be used with \OpenSansCondensed
+	UprightFont=*-CondensedLight.ttf,
+	BoldFont=*-CondensedBold.ttf,
+	ItalicFont=*-CondensedLightItalic.ttf
+]
+
+\renewcommand{\familydefault}{\rmdefault} % Make the main font the default one
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[
+	authordate,
+	backend=biber, % Use biber to compile the bibliography
+	hyperref=true
+]{biblatex-chicago} % Bibliography style
+
+%----------------------------------------------------------------------------------------
+%	INCLUDE OTHER THEME FILES AFTER LOADING REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+
+% Specify the other files required for this theme
+\useinnertheme{faims}
+\useoutertheme{faims}
+
+%----------------------------------------------------------------------------------------
+
+\mode<all>

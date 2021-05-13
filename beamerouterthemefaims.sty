@@ -1,0 +1,158 @@
+% This file is for global presentation elements like headers, footers and custom slides
+
+\mode<presentation>
+
+%----------------------------------------------------------------------------------------
+%	DEFINE SLIDE TITLES & SUBTITLES
+%----------------------------------------------------------------------------------------
+
+\defbeamertemplate{frametitle}{normal}{ % Normal slide title/subtitle styling
+	\begin{beamercolorbox}[wd=\textwidth, ht=0.23\paperheight]{frametitle} % Width and height of the slide title box
+		\begin{tikzpicture} % Need to use TikZ to handle multi-line titles and subtitles, otherwise the spacing is very ugly when either is multi-line
+			\useasboundingbox (0, 0) rectangle (\textwidth, \textheight); % Box holding the contents to follow (margins respected)
+
+			% Coordinates are from the bottom left of the box containing the slide title
+			\node[anchor=west, inner sep=0cm, text width=0.8\linewidth, align=flush left] (title) at (0cm, 0.13\paperheight) {{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\insertframetitle\strut\par}}; % Slide title
+			\node[anchor=north west, inner sep=0cm, yshift=-0.01\paperheight, text width=0.8\linewidth, align=flush left] at (title.south west) {{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\MakeUppercase{\insertframesubtitle}\strut\par}}; % Slide subtitle
+		\end{tikzpicture}
+	\end{beamercolorbox}
+	\ifdefempty{\insertframesubtitle}{\vspace{-\baselineskip}}{} % If there is no subtitle specified, move slide content up so there isn't excess whitespace below the title
+}
+
+\defbeamertemplate{frametitle}{titlepage}{ % Title slide title/subtitle styling
+	\begin{beamercolorbox}[wd=\textwidth, ht=0.27\paperheight]{frametitle} % Width and height of the slide title box
+		\begin{tikzpicture} % Need to use TikZ to handle multi-line titles and subtitles, otherwise the spacing is very ugly when either is multi-line
+			\useasboundingbox (0, 0) rectangle (\textwidth, \textheight); % Box holding the contents to follow (margins respected)
+
+			% Coordinates are from the bottom left of the box containing the slide title
+			\node[anchor=west, inner sep=0cm, text width=0.75\linewidth, align=flush left] (title) at (0cm, 0.13\paperheight) {{\usebeamerfont{title}\usebeamercolor[fg]{title}\MakeUppercase{\insertframetitle}\strut\par}}; % Slide title
+			\node[anchor=north west, inner sep=0cm, yshift=-0.01\paperheight, text width=0.75\linewidth, align=flush left] at (title.south west) {{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{subtitle}\insertframesubtitle\strut\par}}; % Slide subtitle
+		\end{tikzpicture}
+	\end{beamercolorbox}
+	\vspace{0.08\paperheight} % Padding below the titles
+}
+
+\defbeamertemplate{frametitle}{sectionpage}{ % Section slide title/subtitle styling
+	\begin{beamercolorbox}[wd=\textwidth, ht=0.27\paperheight]{frametitle} % Width and height of the slide title box
+		\begin{tikzpicture} % Need to use TikZ to handle multi-line titles and subtitles, otherwise the spacing is very ugly when either is multi-line
+			\useasboundingbox (0, 0) rectangle (\textwidth, \textheight); % Box holding the contents to follow (margins respected)
+
+			% Coordinates are from the bottom left of the box containing the slide title
+			\node[anchor=west, inner sep=0cm, text width=0.7\linewidth, align=flush left] (title) at (0cm, 0.13\paperheight) {{\usebeamerfont{frametitle}\usebeamercolor[fg]{frametitle}\MakeUppercase{\insertframetitle}\strut\par}}; % Slide title
+			\node[anchor=north west, inner sep=0cm, yshift=-0.01\paperheight, text width=0.7\linewidth, align=flush left] at (title.south west) {{\raggedright\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}}; % Slide subtitle
+		\end{tikzpicture}
+	\end{beamercolorbox}
+	\vspace{0.08\paperheight} % Padding below the titles
+}
+
+\setbeamertemplate{frametitle}[normal] % Use the normal title style by default
+
+%----------------------------------------------------------------------------------------
+%	DEFINE SLIDE HEADERS
+%----------------------------------------------------------------------------------------
+
+\defbeamertemplate{headline}{logo}{ % Define logo header style
+	\vspace{5pt} % Move the logo down slightly
+	\hfill \raisebox{-\height}[0pt][0pt]{\includegraphics[width=2.7cm]{Faims-large.png}}\hspace{\beamer@rightmargin} % Logo image on the right (raised up its height so it doesn't push down the frame title) with slight padding to the right
+}
+
+\defbeamertemplate{headline}{empty}{} % Define empty header style
+
+\setbeamertemplate{headline}[logo] % Use the logo header style by default
+
+%----------------------------------------------------------------------------------------
+%	DEFINE SLIDE FOOTERS
+%----------------------------------------------------------------------------------------
+
+\setbeamertemplate{footline}{
+	\begin{beamercolorbox}[wd=\textwidth, ht=0.07\paperheight]{footline} % Width and height of the slide footer box
+		\begin{tikzpicture}
+			\useasboundingbox (0, 0) rectangle (\textwidth, \textheight); % Box holding the contents to follow (margins respected)
+
+			% Coordinates are from the bottom left of the box containing the slide footer
+			\node[anchor=east, inner sep=0cm] at (\textwidth-\beamer@leftmargin, 0.06\paperheight) {{\usebeamerfont{page number in head/foot}\usebeamercolor[fg]{page number in head/foot}\thepage}}; % Slide number
+			\node[anchor=west, inner sep=\beamer@leftmargin] at (0cm, 0.06\paperheight) {{\usebeamerfont{author in head/foot}\usebeamercolor[fg]{author in head/foot}\textbf{CC BY 4.0} Macquarie University}}; % License information
+		\end{tikzpicture}
+	\end{beamercolorbox}
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE SLIDE DEFINITION
+%----------------------------------------------------------------------------------------
+
+\newenvironment{titleframe}{
+	\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{faims3-orange-slide-background.png}} % Slide background image
+	\setbeamertemplate{frametitle}[titlepage] % Use the title page title style
+
+	\begin{frame}[plain] % Suppress header and footer
+		\usebeamerfont{author}\usebeamercolor{author} % Use font styling for author/author information/department
+}{
+	\end{frame}
+
+	\setbeamertemplate{background canvas}{} % Reset slide background for future slides
+	\setbeamertemplate{frametitle}[normal] % Reset the title style
+}
+
+%----------------------------------------------------------------------------------------
+%	SECTION SLIDE DEFINITION
+%----------------------------------------------------------------------------------------
+
+\newenvironment{sectionframe}{
+	\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{faims3-gray-slide-background.png}} % Slide background image
+	\setbeamertemplate{frametitle}[sectionpage] % Use the section page title style
+
+	\begin{frame}[plain] % Suppress header and footer
+		\usebeamerfont{section extratext} % Use font styling for section page extra text
+}{
+	\end{frame}
+
+	\setbeamertemplate{background canvas}{} % Reset slide background for future slides
+	\setbeamertemplate{frametitle}[normal] % Reset the title style
+}
+
+%----------------------------------------------------------------------------------------
+%	CLOSING SLIDE DEFINITION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\closingslide}{ % Command to output a closing slide
+	\setbeamertemplate{background canvas}{\includegraphics[width=\paperwidth]{FAIMS3-acknowledgement-Template.pdf}} % Slide background image
+
+	\begin{frame}[plain] % Suppress header and footer
+	\end{frame}
+
+	\setbeamertemplate{background canvas}{} % Reset slide background for future slides
+}
+
+%----------------------------------------------------------------------------------------
+%	IMAGE SLIDE DEFINITION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\imageslide}[1]{ % Command to output a slide with a footer and a full-width image
+	\setbeamertemplate{headline}[empty] % Suppress header
+	\begin{frame}
+		\begin{tikzpicture}[remember picture,overlay]
+			% Coordinates are from the bottom left of the slide (with margins applied)
+			\node[anchor=north west, inner sep=0] at (current page.north west){\includegraphics[width=\paperwidth]{#1}}; % Image is positioned to be full slide width anchored at the top left of the slide, image should be cropped to fit height correctly
+		\end{tikzpicture}
+	\end{frame}
+	\setbeamertemplate{headline}[logo] % Use the logo header for future slides
+}
+
+%----------------------------------------------------------------------------------------
+%	BIG NUMBER SLIDE DEFINITION
+%----------------------------------------------------------------------------------------
+
+\newenvironment{bignumframe}[1]{ % Environment to output a slide with a large number and all slide content centered
+	\begin{frame}
+		\centering\vfill % Horizontally and vertically center content
+
+		{\usebeamerfont{bignum}\usebeamercolor[fg]{bignum}#1} % Use font styling for the big number
+
+		\bigskip
+}{
+	\end{frame}
+}
+
+%----------------------------------------------------------------------------------------
+
+\mode<all>

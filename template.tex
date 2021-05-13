@@ -1,0 +1,456 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FAIMS3 Presentations
+% LaTeX Template
+% Version 1.0 (May 1, 2021)
+%
+% This template was created by:
+% Vel (enquiries@latextypesetting.com)
+% https://www.LaTeXTypesetting.com
+%
+%!TEX program = xelatex
+% Note: this template must be compiled with XeLaTeX rather than PDFLaTeX
+% due to the custom fonts used. The line above should ensure this happens
+% automatically, but if it doesn't, your LaTeX editor should have a simple toggle
+% to switch to using XeLaTeX.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+	aspectratio=169, % Wide slides by default
+	12pt, % Default font size
+	t, % Top align all slide content
+]{beamer}
+
+\usetheme{faims} % Use the FAIMS beamer theme
+\usecolortheme{faims} % Use the FAIMS beamer color theme
+
+\bibliography{sample.bib} % BibLaTeX bibliography file
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	 TITLE SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{titleframe} % Custom environment required for the title slide
+	\frametitle{Presentation Title}
+	\framesubtitle{Presentation Subtitle}
+
+	Speaker name
+
+	Speaker information
+
+	\vfill
+
+	\today
+\end{titleframe}
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Table of Contents}
+	\framesubtitle{One Column}
+
+	\tableofcontents % Sections are automatically populated from \section{} commands through the presentation
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+    \frametitle{Table of Contents}
+	\framesubtitle{Two Columns}
+    
+    \begin{columns}[t]
+        \begin{column}{0.45\textwidth}
+            \tableofcontents[sections={1-3}] % Sections are automatically populated from \section{} commands through the presentation
+        \end{column}
+        \hfill
+        \begin{column}{0.45\textwidth}
+            \tableofcontents[sections={4-6}] % Sections are automatically populated from \section{} commands through the presentation
+        \end{column}
+    \end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{sectionframe} % Custom environment required for section slides
+	\frametitle{This is a section slide title spanning two lines}
+	\framesubtitle{Subtitle}
+
+	Some section slide content
+
+	This is on another line
+\end{sectionframe}
+
+%----------------------------------------------------------------------------------------
+
+\section{Text Examples}
+
+%----------------------------------------------------------------------------------------
+%	AUTOMATIC TEXT WRAPPING
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[allowframebreaks] % 'allowframebreaks' allows automatic splitting across slides if the content is too long
+	\frametitle{Automatic Text Wrapping}
+	\framesubtitle{This text will automatically span across multiple slides\ldots}
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor.
+	
+	\bigskip
+	
+	Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper, arcu lorem lobortis justo, nec convallis ante quam quis lectus. Donec cursus maximus luctus. Vivamus lobortis eros et massa porta porttitor.
+
+	\bigskip
+
+	Fusce varius orci ac magna dapibus porttitor. In tempor leo a neque bibendum sollicitudin. Nulla pretium fermentum nisi, eget sodales magna facilisis eu. Praesent aliquet nulla ut bibendum lacinia.
+
+	\bigskip
+
+	Pellentesque lobortis justo enim, a condimentum massa tempor eu. Ut quis nulla a quam pretium eleifend nec eu nisl. Nam cursus porttitor eros, sed luctus ligula convallis quis. Nam convallis, ligula in auctor euismod, ligula mauris fringilla tellus, et egestas mauris odio eget diam. Praesent sodales in ipsum eu dictum.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	FONT OPTIONS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Font Options}
+
+	Open Sans Light (default): Light, \textbf{Semibold}, \textit{LightItalic}, \textbf{\textit{SemiboldItalic}}
+
+	\medskip
+
+	Open Sans: {\OpenSans Regular, \textbf{Bold}, \textit{Italic}, \textbf{\textit{BoldItalic}}}
+
+	\medskip
+
+	Open Sans Condensed: {\OpenSansCondensed CondensedLight, \textbf{CondensedBold}, \textit{CondensedLightItalic}}
+
+	\bigskip
+
+	{\tiny tiny} {\scriptsize scriptsize} {\footnotesize footnotesize} {\small small} {\normalsize normalsize} {\large large} {\Large Large} {\LARGE LARGE} {\huge huge}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	SLIDE WITHOUT TITLE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	Slides don't need to have titles.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	SLIDE WITHOUT TITLE WITH TITLE PADDING
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{\empty} % Empty so vertical whitespace is still added
+
+	Slides can have empty titles, for alignment of content with slides with titles.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	EMPTY NO PADDING SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[plain]
+	Slides can also be completely plain with no headers/footers and padding.
+
+	\bigskip
+
+	This is useful for large tables or figures.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	SECTION HIERARCHY
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Heading Styling}
+
+	\headinglevelone{Heading Level 1}
+
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu feugiat velit, et tempus augue.
+	
+	\headingleveltwo{Heading Level 2}
+
+	Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie.
+	
+	\headinglevelthree{Heading Level 3}
+
+	Sed dictum nisl non aliquet porttitor.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\section{Blocks and column examples}
+
+%----------------------------------------------------------------------------------------
+%	COLUMNS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Using Columns}
+	\framesubtitle{Two Columns}
+
+	\begin{columns}[T]
+		\begin{column}{0.45\textwidth}
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu feugiat velit, et tempus augue. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper, nec faucibus ipsum molestie. Sed dictum nisl non aliquet porttitor.
+		\end{column}
+		
+		\hfill
+
+		\begin{column}{0.45\textwidth}
+			Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+	\frametitle{Using Columns}
+	\framesubtitle{Three Columns}
+
+	\begin{columns}[T]
+		\begin{column}{0.3\textwidth}
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros. Pellentesque iaculis odio vel nisl ullamcorper.
+		\end{column}
+
+		\begin{column}{0.3\textwidth}
+			\includegraphics[width=\textwidth]{Faims-large.png}\\[6pt]
+			Aenean tincidunt sodales massa, et hendrerit tellus mattis ac.
+		\end{column}
+		
+		\begin{column}{0.3\textwidth}
+			Aliquam arcu turpis, ultrices sed luctus ac, vehicula id metus. Morbi eu feugiat velit, et tempus augue. Proin ac mattis tortor. Donec tincidunt, ante rhoncus luctus semper.
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	BLOCKS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Using Beamer Blocks}
+
+	\begin{columns}[T]
+		\begin{column}{0.3\textwidth}
+			\begin{block}{Block Title}
+				Aliquam arcu neque, ornare in, ullamcorper quis, commodo eu, libero. Maecenas sapien libero, lobortis in, sodales eget, dui.
+			\end{block}
+		\end{column}
+
+		\begin{column}{0.3\textwidth}
+			\begin{block}{\centering Centered Block Title}
+				Aliquam arcu neque, ornare in, ullamcorper quis, commodo eu, libero. Maecenas sapien libero, lobortis in, sodales eget, dui.
+			\end{block}
+		\end{column}
+
+		\begin{column}{0.3\textwidth}
+			\begin{block}{\vspace{-\baselineskip}}
+				Aliquam arcu neque, ornare in, ullamcorper quis, commodo eu, libero. Maecenas sapien libero, lobortis in, sodales eget, dui.
+			\end{block}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	ALERT BLOCK
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Alert Blocks}
+	\framesubtitle{Useful for Important Information}
+
+	\begin{columns}[T]
+		\begin{column}{0.45\textwidth}
+			Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit. Nulla mattis nisl eu malesuada suscipit.
+		\end{column}
+		
+		\hfill
+
+		\begin{column}{0.45\textwidth}
+			\vspace*{-\baselineskip} % For vertical alignment with the text
+			\begin{alertblock}{Alert Block Title}
+				Suspendisse vitae elit. Aliquam arcu neque, ornare in, ullamcorper quis, commodo eu, libero. Fusce sagittis erat at erat tristique mollis. Maecenas sapien libero, molestie et, lobortis in, sodales eget, dui.
+			\end{alertblock}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE BLOCK
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Example Blocks}
+
+	\begin{columns}[T]
+		\begin{column}{0.6\textwidth}
+			\vspace*{-\baselineskip} % For vertical alignment with the text
+			\begin{exampleblock}{Example Block Title}
+				Suspendisse vitae elit. Aliquam arcu neque, ornare in, ullamcorper quis, commodo eu, libero. Fusce sagittis erat at erat tristique mollis. Maecenas sapien libero, molestie et, lobortis in, sodales eget, dui. Morbi ultrices rutrum lorem. Nam elementum ullamcorper leo. Morbi dui. Aliquam sagittis. Nunc placerat. Pellentesque tristique sodales est.
+			\end{exampleblock}
+		\end{column}
+
+		\hfill
+
+		\begin{column}{0.3\textwidth}
+			Etiam vulputate arcu dignissim, finibus sem et, viverra nisl. Aenean luctus congue massa, ut laoreet metus ornare in. Nunc fermentum nisi imperdiet lectus tincidunt vestibulum at ac elit.
+		\end{column}
+	\end{columns}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\section{Slide element examples}
+
+%----------------------------------------------------------------------------------------
+%	LISTS
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Lists}
+
+	\begin{enumerate}
+		\item First numbered item
+		\begin{enumerate}
+			\item First indented numbered item
+			\item Second indented numbered item
+			\begin{enumerate}
+				\item First second-level indented numbered item
+			\end{enumerate}
+		\end{enumerate}
+		\item Second numbered item
+	\end{enumerate}
+
+	\rule{\textwidth}{0.25pt}
+
+	\begin{itemize}
+		\item First bullet point item
+		\begin{itemize}
+			\item First indented bullet point item
+			\item Second indented bullet point item
+			\begin{itemize}
+				\item First second-level indented bullet point item
+			\end{itemize}
+		\end{itemize}
+		\item Second bullet point item
+	\end{itemize}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	TABLE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Table}
+	\framesubtitle{Displaying Data}
+
+	\begin{table}
+		\centering % Center the table in the slide
+		\begin{tabular}{L{0.18\textwidth} R{0.11\textwidth} R{0.11\textwidth}}
+			\toprule
+			\textit{Per 50g} & \textbf{Pork} & \textbf{Soy} \\
+			\midrule
+			Energy & 760kJ & 538kJ\\
+			Protein & 7.0g & 9.3g\\
+			Carbohydrate & 0.0g & 4.9g\\
+			Fat & 16.8g & 9.1g\\
+			Sodium & 0.4g & 0.4g\\
+			Fibre & 0.0g & 1.4g\\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	IMAGE
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Image/Figure}
+	\framesubtitle{Including a Centered Image, Such As of a Graphical Figure}
+
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{Faims-large.png}
+	\end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	EQUATION
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Equation}
+
+	\begin{equation}
+		\cos^3 \theta =\frac{1}{4}\cos\theta+\frac{3}{4}\cos 3\theta
+	\end{equation}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+	\frametitle{Referencing}
+
+	This statement requires citation \autocite{Smith:2019qr}. This statement requires multiple citations \autocite{Smith:2019qr, Smith:2021jd}. This statement contains an in-text citation, reminiscent of that in \textcite{Smith:2021jd}.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\section{Custom slides}
+
+%----------------------------------------------------------------------------------------
+%	IMAGE SLIDE
+%----------------------------------------------------------------------------------------
+
+\imageslide{Monasterio_Khor_Virap_Armenia.jpg} % Image automatically takes up the full width of the slide, crop it if it's too tall
+
+%----------------------------------------------------------------------------------------
+%	BIG NUMBER SLIDE
+%----------------------------------------------------------------------------------------
+
+\begin{bignumframe}{20\%} % Big number slide, first argument should be the big number
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porttitor arcu luctus, imperdiet urna iaculis, mattis eros.
+
+	\bigskip
+
+	\begin{itemize}
+		\item Etiam vulputate arcu dignissim, finibus sem et, viverra nisl.
+		\item Aenean luctus congue massa, ut laoreet metus ornare in.
+	\end{itemize}
+\end{bignumframe}
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\begin{frame}[allowframebreaks] % 'allowframebreaks' allows automatic splitting across slides if the content is too long
+	\frametitle{Bibliography}
+
+	\printbibliography[heading=none]
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+% Long section title example
+\section{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu feugiat velit, et tempus augue.}
+
+%----------------------------------------------------------------------------------------
+%	CLOSING SLIDE
+%----------------------------------------------------------------------------------------
+
+\closingslide % Output closing slide, automatically populated with a background image
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

@@ -1,0 +1,110 @@
+% This file is for styling elements within slides
+
+\mode<presentation>
+
+%----------------------------------------------------------------------------------------
+%	CUSTOMIZE LISTS
+%----------------------------------------------------------------------------------------
+
+\setbeamertemplate{enumerate item}{\arabic{enumi}.} % Customize the first level numbered character
+\setbeamertemplate{enumerate subitem}{\alph{enumii}.} % Customize the second level numbered character
+\setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.} % Customize the third level numbered character
+
+%------------------------------------------------
+
+\setbeamertemplate{itemize item}{\textbullet} % Customize the first level bullet point character
+\setbeamertemplate{itemize subitem}{--} % Customize the second level bullet point character
+\setbeamertemplate{itemize subsubitem}{-} % Customize the third level bullet point character
+
+%----------------------------------------------------------------------------------------
+%	CUSTOMIZE SLIDE ELEMENTS
+%----------------------------------------------------------------------------------------
+
+\setbeamertemplate{navigation symbols}{} % Disable default beamer navigation arrows
+
+\setbeamertemplate{blocks}[shadow=false] % Disable shadows around blocks
+
+\setbeamertemplate{bibliography item}[text] % Remove icons added by beamer for bibliography entries
+
+\setbeamertemplate{section in toc}[sections numbered] % Number sections in the table of contents
+
+\setbeamertemplate{section in toc}{ % Section styling in the table of contents
+	\minipage[t]{1.1cm} % Width of section numbers
+		\vspace{0pt} % Hack needed for top alignment
+		{\usebeamerfont*{section number projected}\ifnumless{\inserttocsectionnumber}{10}{0\inserttocsectionnumber}{\inserttocsectionnumber}} % Section number, output with a zero if less than 10
+	\endminipage
+	\minipage[t]{0.8\textwidth}
+		\vspace{0pt} % Hack needed for top alignment
+		\raggedright\inserttocsection\par % Section text
+	\endminipage
+	\vspace{\baselineskip} % Vertical whitespace to separate sections
+}
+
+%----------------------------------------------------------------------------------------
+%	FONT SETTINGS FOR SLIDE ELEMENTS
+%----------------------------------------------------------------------------------------
+
+\setbeamerfont{normal text}{size=\fontsize{12pt}{13pt}} % Default frame text
+\AtBeginDocument{\usebeamerfont{normal text}} % Force the use of the normal text modification
+
+\setbeamerfont{frametitle}{size=\fontsize{18pt}{14pt}, series=\bfseries} % Frame titles
+\setbeamerfont{framesubtitle}{size=\fontsize{13pt}{11pt}} % Frame subtitles
+
+\setbeamerfont{title}{size=\fontsize{18pt}{14pt}, series=\bfseries} % Presentation title
+\setbeamerfont{author}{size=\fontsize{13pt}{14pt}} % Presentation author/contact information/department on title slide
+
+\setbeamerfont{section extratext}{size=\fontsize{13pt}{14pt}} % Section extra text
+
+\setbeamerfont{page number in head/foot}{size=\fontsize{6pt}{8pt}, series=\bfseries} % Slide numbers in footer
+\setbeamerfont{author in head/foot}{size=\fontsize{6pt}{8pt}} % License/authorship information in footer
+
+\setbeamerfont{section number projected}{size=\fontsize{24pt}{24pt}} % Section numbers in the table of contents
+\setbeamerfont{section in toc}{size=\fontsize{12pt}{13pt}, series=\bfseries} % Section names in the table of contents
+
+\setbeamerfont{bignum}{size=\fontsize{60pt}{64pt}, series=\bfseries\OpenSans} % Big number slide number font style
+
+\renewcommand*{\bibfont}{\scriptsize} % Reduce bibliography font size
+
+%----------------------------------------------------------------------------------------
+%	TABLES
+%----------------------------------------------------------------------------------------
+
+\usepackage{array} % Required for manipulating table elements
+
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}} % Define a new right-aligned paragraph column type
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % Define a new left-aligned (no justification) paragraph column type
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}} % Define a new centred paragraph column type
+
+%----------------------------------------------------------------------------------------
+%	HEADINGS
+%----------------------------------------------------------------------------------------
+
+\newcommand{\headinglevelone}[1]{%
+	\begingroup
+		\vspace{6pt}%
+		\fontsize{12pt}{13pt}\selectfont%
+		\textcolor{faimsblue}{#1}%
+		\vspace{3pt}%
+	\endgroup
+}
+
+\newcommand{\headingleveltwo}[1]{%
+	\begingroup
+		\vspace{6pt}%
+		\fontsize{10pt}{11pt}\selectfont%
+		\textcolor{faimsorange}{#1}%
+		\vspace{1pt}%
+	\endgroup
+}
+
+\newcommand{\headinglevelthree}[1]{
+	\begingroup
+		\vspace{6pt}%
+		\fontsize{8pt}{9pt}\selectfont%
+		\textcolor{faimsblue}{#1}%
+	\endgroup
+}
+
+%----------------------------------------------------------------------------------------
+
+\mode<all>
