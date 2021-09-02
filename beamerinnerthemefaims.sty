@@ -6,13 +6,17 @@
 %	CUSTOMIZE LISTS
 %----------------------------------------------------------------------------------------
 
+\setlength{\leftmargini}{4mm}
+
+
 \setbeamertemplate{enumerate item}{\arabic{enumi}.} % Customize the first level numbered character
 \setbeamertemplate{enumerate subitem}{\alph{enumii}.} % Customize the second level numbered character
 \setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.} % Customize the third level numbered character
 
 %------------------------------------------------
 
-\setbeamertemplate{itemize item}{\textbullet} % Customize the first level bullet point character
+\setbeamertemplate{itemize item}{\raisebox{-0pt}{\includegraphics[width=5pt]{Images/faims3-via.png}}} %{\fontsize{16pt}{8pt}\selectfont\textdegree}}
+%\setbeamertemplate{itemize item}{$\circ$} % Customize the first level bullet point character
 \setbeamertemplate{itemize subitem}{--} % Customize the second level bullet point character
 \setbeamertemplate{itemize subsubitem}{-} % Customize the third level bullet point character
 
@@ -23,6 +27,23 @@
 \setbeamertemplate{navigation symbols}{} % Disable default beamer navigation arrows
 
 \setbeamertemplate{blocks}[shadow=false] % Disable shadows around blocks
+
+% BBS https://tex.stackexchange.com/a/282988
+\setbeamertemplate{block begin}
+{
+  \par\vskip\medskipamount%
+  \begin{beamercolorbox}[colsep*=2mm]{block title}
+    \usebeamerfont*{block title}\insertblocktitle%
+  \end{beamercolorbox}%
+  {\parskip0pt\par}%
+  \ifbeamercolorempty[bg]{block title}
+  {}
+  {\ifbeamercolorempty[bg]{block body}{}{\nointerlineskip\vskip-0.5pt}}%
+  \usebeamerfont{block body}%
+  \begin{beamercolorbox}[colsep*=2mm,vmode]{block body}%
+    \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
+}
+
 
 \setbeamertemplate{bibliography item}[text] % Remove icons added by beamer for bibliography entries
 
@@ -44,13 +65,17 @@
 %	FONT SETTINGS FOR SLIDE ELEMENTS
 %----------------------------------------------------------------------------------------
 
-\setbeamerfont{normal text}{size=\fontsize{12pt}{13pt}} % Default frame text
+\setbeamerfont{normal text}{size=\fontsize{8pt}{10pt}} % Default frame text
 \AtBeginDocument{\usebeamerfont{normal text}} % Force the use of the normal text modification
+
+
+\setbeamertemplate{itemize/enumerate subbody begin}{\usebeamerfont{normal text}}
+
 
 \setbeamerfont{frametitle}{size=\fontsize{18pt}{14pt}, series=\bfseries} % Frame titles
 \setbeamerfont{framesubtitle}{size=\fontsize{13pt}{11pt}} % Frame subtitles
 
-\setbeamerfont{title}{size=\fontsize{18pt}{14pt}, series=\bfseries} % Presentation title
+\setbeamerfont{title}{size=\fontsize{16pt}{14pt}, series=\bfseries} % Presentation title
 \setbeamerfont{author}{size=\fontsize{13pt}{14pt}} % Presentation author/contact information/department on title slide
 
 \setbeamerfont{section extratext}{size=\fontsize{13pt}{14pt}} % Section extra text
